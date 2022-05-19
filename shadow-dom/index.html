@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    const box = window.box
+    const shadowRoot = box.attachShadow({mode: 'closed'})
+    const label = document.createElement('div')
+    label.textContent = 'this is shadow dom'
+    label.id = 'label'
+    shadowRoot.appendChild(label)
+    const root = box.shadowRoot
+    console.log(root.querySelector('#label'))
+
+
+</script>
+</html>
