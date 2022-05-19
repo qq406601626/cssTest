@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #label{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <div id="box"></div>
 </body>
 <script>
     const box = window.box
-    const shadowRoot = box.attachShadow({mode: 'closed'})
+    const shadowRoot = box.attachShadow({mode: 'open'})
     const label = document.createElement('div')
     label.textContent = 'this is shadow dom'
     label.id = 'label'
