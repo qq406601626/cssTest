@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul is="expanding-list">
+
+</ul>
+</body>
+<script>
+    // 完全自定义component
+    // AutonomousCustomElements必须继承自HTMLElement类
+    class AutonomousCustomElements extends HTMLElement {
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+        }
+
+        disconnectedCallback() {
+        }
+
+        adoptedCallback() {
+        }
+
+        attributeChangedCallback() {
+        }
+
+        // 想要触发attributeChangedCallback，必须加上对相应的属性的监听
+        static get observedAttributes() {
+            return ['width', 'height'];
+        }
+    }
+
+    // 声明的自定义component必须带有'-'字符
+    customElements.define('Autonomous-Custom-Elements', AutonomousCustomElements);
+    // 使用：
+    // <Autonomous-Custom-Elements></Autonomous-Custom-Elements>
+
+    // 半自定义component
+    // CustomizedBuiltInElements可以继承自某个dom类型的类，从而拥有相应的特性。
+    class CustomizedBuiltInElements extends HTMLUListElement {
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+        }
+
+        disconnectedCallback() {
+        }
+
+        adoptedCallback() {
+        }
+
+        attributeChangedCallback() {
+        }
+
+        // 想要触发attributeChangedCallback，必须加上对相应的属性的监听
+        static get observedAttributes() {
+            return ['width', 'height'];
+        }
+    }
+
+    // 声明的自定义component必须带有'-'字符
+    customElements.define('Customized-Built-In-Elements', CustomizedBuiltInElements, {extends: "ul"});
+    // 使用：
+    // <ul is="Customized-Built-In-Elements"></ul>
+</script>
+</html>
