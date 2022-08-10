@@ -9,12 +9,13 @@
             padding: 0;
         }
         .box{
-            width: min-content;
+            /*width: min-content;*/
+            width: 30px;
         }
     </style>
 </head>
 <body>
-<div class="box">helloworld</div>
+<div class="box">helloworld————————————helloworld</div>
 <!--CJK文字的换行表现：-->
 <!--一、中文文字都是换行点-->
 <!--二、标点符号自带特殊换行特性，有些标点不能出现在一行的开头（称为避头标点，包括[，?。、!]，前面必须有字符），有些标点不能出现在一行的结尾（称为避尾标点，包括[上引号和上括号等]，后面必须有字符）-->
@@ -29,5 +30,11 @@
         2、短横线：U+002D。只有在后面有字符时才会出现换行特性。
         3、英文问号：U+003F。
 -->
+<!--二、word break:break-all对连续破折号无效，可以使用word break：break-word。该属性效果可以使用overflow-wrap替换。-->
+<!--三、连接符分为硬连接符（U+2010）和软连接符号（U+00AD）。
+        1、硬连接符：
+        2、软连接符：使用[&shy;]表示，该软连接符在换行的时候会生成一个短横线。该效果和使用hyphens：auto效果类似，只不过hyphens用于动态文本，&shy用于静态文本。
+-->
+<!--四、对于动态文本，可以使用word break或者overflow-wrap属性。对于静态文本，可以使用<wbr>标签，该标签在需要换行的地方会生效，在不需要换行的地方不生效。-->
 </body>
 </html>
