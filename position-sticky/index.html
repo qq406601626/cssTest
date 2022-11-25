@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .box {
+            height: 100px;
+            background: red;
+            margin-bottom: 10px;
+        }
+
+        .box2 {
+            background: green;
+        }
+
+        .box3 {
+            background: pink;
+            position: sticky;
+            top: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="wrap">
+        <!-- 注意： -->
+        <!-- 设置了position: sticky的元素必须要设置top/bottom/left/right属性之一 -->
+        <!-- 设置了position: sticky的元素依赖父元素：当父元素完全滚出视口后，设置了sticky属性就失效了。 -->
+        <div class="box box2 box3"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+</body>
+</html>
