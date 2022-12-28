@@ -14,54 +14,14 @@
             overflow-y: auto;
         }
 
-        .box {
-            height: 100px;
-            background: red;
-            margin-bottom: 10px;
-        }
-
-        .box2 {
-            background: green;
-        }
-
-        .box3 {
-            background: pink;
-            position: sticky;
-            top: 0px;
-        }
-
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="wrap">
-        <!-- 注意： -->
-        <!-- 设置了position: sticky的元素必须要设置top/bottom/left/right属性之一 -->
-        <!-- 设置了position: sticky的元素依赖父元素：当父元素完全滚出视口后，设置了sticky属性就失效了。 -->
-        <!-- 设置了position: sticky的元素后面必须有别的元素内容，不然sticky不生效 -->
-        <div class="box box2 box3"></div>
-        <div class="box box2"></div>
-        <div class="box box2"></div>
-        <div class="box box2"></div>
-        <div class="box box2"></div>
-        <div class="box box2"></div>
-        <div class="box box2"></div>
-    </div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
+    <!--1、相关参照元素：最近的滚动元素、设置了position: sticky的元素的父元素。-->
+    <!--2、position: sticky的top和left值是参照最近的滚动元素。-->
+    <!--3、随着滚动进行，sticky的父元素向上或者向左移动，当sticky元素到达粘性位置后，粘性元素开始向下或者向右移动，当粘性元素超出父元素的区域后，-->
+    <!--   粘性效果消失，sticky元素开始随着其父元素向上或者向左滚动走。-->
 </div>
 </body>
 </html>
