@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper-2 {
+            display: grid;
+            width: 1000px;
+            height: 1000px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2,200px);
+            grid-auto-flow: row;
+            grid-gap: 20px;
+            justify-items: stretch;
+            align-items: stretch;
+            justify-content: center;
+            align-content: center;
+            grid-auto-rows: minmax(100px, auto);
+            margin: 0 auto;
+        }
+        .one {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            background: #19CAAD;
+        }
+        .two {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            /*   如果有重叠，就使用 z-index */
+            z-index: 1;
+            background: #8CC7B5;
+        }
+        .three {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4;
+            margin-top: -20px;
+            background: #8CC7B5;
+        }
+        .four {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 5;
+            background: #BEE7E9;
+        }
+        .five {
+            grid-column-start: 2;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 5;
+            background: #E6CEAC;
+        }
+        .six {
+            grid-column: 3;
+            grid-row: 4;
+            background: #ECAD9E;
+        }
+
+        .seven {
+            background: #BEEDC7;
+        }
+
+        .eight {
+            background: #F4606C;
+        }
+
+        .nine {
+            background: #A0EEE1;
+        }
+
+        .item {
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper-2">
+    <div class="one item">One</div>
+    <div class="two item">Two</div>
+    <div class="three item">Three</div>
+    <div class="four item">Four</div>
+    <div class="five item">Five</div>
+    <div class="six item">Six</div>
+    <!--<div class="seven item">Seven</div>-->
+    <!--<div class="eight item">eight</div>-->
+    <!--<div class="nine item">Nine</div>-->
+</div>
+</body>
+</html>
