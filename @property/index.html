@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*CSS Houdini API*/
+        /*声明一个变量*/
+        @property --angle {
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+
+        /*在动画中只需要改变变量的值即可，有点类似于数据驱动*/
+        @keyframes bg {
+            to {
+                --angle: 360deg
+            }
+        }
+
+        .box {
+            width: 400px;
+            height: 200px;
+            margin: 400px auto;
+            /*在样式中引用声明的变量，在做动画时，只需要改变引用的变量的值*/
+            background-image: linear-gradient(var(--angle), #ff0000, #00ff00);
+            animation: bg 1s linear forwards infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+
+</html>
