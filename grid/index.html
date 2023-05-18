@@ -54,11 +54,13 @@
     <li>【grid-auto-flow】：row/column [dense]。指定在网格中被自动布局的元素怎样排列。默认的放置顺序是"先行后列"。[dense]表示尽可能填满表格。效果可参见文件夹中的图片。</li>
     <li>【justify-items】：justify-items: start/end/center/stretch。属性设置单元格内容的水平位置（左中右）。见效果图。设置在容器上，有点类似flex，每个单元格都是一个flex元素。</li>
     <li>【align-items】：justify-items: start/end/center/stretch。设置单元格的垂直位置（上中下）。效果原理类似justify-items。设置在容器上，有点类似flex，每个单元格都是一个flex元素。</li>
-    <li>【place-items】：justify-items: start/end/center/stretch。</li>
+    <li>【place-items】：是设置justify-items和align-items的简写形式。</li>
     <li>【justify-content】：justify-content: start/end/center/stretch/space-around/space-between/space-evenly。整个内容区域在容器里面的水平位置（左中右）。见效果图。设置在容器上，有点类似flex，每个单元格都是一个flex元素。</li>
     <li>【align-content】：align-content: start/end/center/stretch/space-around/space-between/space-evenly。整个内容区域的垂直位置（上中下）。见效果图。设置在容器上，有点类似flex，每个单元格都是一个flex元素。</li>
     <li>【grid-auto-columns】：grid-auto-columns: 50px;多出来的隐式网格的宽度为50px。需要配合grid-auto-flow: column使用。如果设置的值为[50px 100px 200px ...]，代表分别单独设置每个单元格宽度。 </li>
     <li>【grid-auto-rows】：grid-auto-rows: 50px;多出来的隐式网格的高度为50px。如果设置的值为[50px 100px 200px ...]，代表分别单独设置每个单元格高度。</li>
+    <li>【grid-column-start、grid-column-end、grid-row-start、grid-row-end】：grid-column-start: 2;grid-column-end: 4;grid-row-start: 1;grid-row-end: 2;指定网格项目所在的四个边框，分别定位在哪根网格线。参见网格线效果图。</li>
+    <li>【justify-self、align-self、 place-self】：设置单元格内容的对齐，跟justify-items、align-items、place-items效果一样，但只作用于单个项目。</li>
 
 </ol>
 <div class="wrapper-2">
