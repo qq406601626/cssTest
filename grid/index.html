@@ -59,8 +59,10 @@
     <li>【align-content】：align-content: start/end/center/stretch/space-around/space-between/space-evenly。整个内容区域的垂直位置（上中下）。见效果图。设置在容器上，有点类似flex，每个单元格都是一个flex元素。</li>
     <li>【grid-auto-columns】：grid-auto-columns: 50px;多出来的隐式网格的宽度为50px。需要配合grid-auto-flow: column使用。如果设置的值为[50px 100px 200px ...]，代表分别单独设置每个单元格宽度。 </li>
     <li>【grid-auto-rows】：grid-auto-rows: 50px;多出来的隐式网格的高度为50px。如果设置的值为[50px 100px 200px ...]，代表分别单独设置每个单元格高度。</li>
-    <li>【grid-column-start、grid-column-end、grid-row-start、grid-row-end】：grid-column-start: 2;grid-column-end: 4;grid-row-start: 1;grid-row-end: 2;指定网格项目所在的四个边框，分别定位在哪根网格线。参见网格线效果图。</li>
+    <li>【grid-column-start、grid-column-end、grid-row-start、grid-row-end】：grid-column-start: 2;grid-column-end: 4;grid-row-start: 1;grid-row-end: 2;或者设置[span N]，代表从当前网格线跨越N个单元格。指定网格项目所在的四个边框，分别定位在哪根网格线。参见网格线效果图。</li>
     <li>【justify-self、align-self、 place-self】：设置单元格内容的对齐，跟justify-items、align-items、place-items效果一样，但只作用于单个项目。</li>
+    <li>【z-index】：设置它们的层级关系</li>
+    <li>实用效果：grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))。表示列宽至少 200px，如果还有空余则一起等分。</li>
 
 </ol>
 <div class="wrapper-2">
