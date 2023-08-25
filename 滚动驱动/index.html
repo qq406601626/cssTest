@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes grow-progress {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background-color: #F44336;
+            transform-origin: 0 50%;
+            animation: grow-progress 3s linear;
+            animation-timeline: scroll();
+
+        /*默认情况下，动画是随着时间的流逝而播放的。*/
+        /*CSS 滚动驱动动画指的是将动画的执行过程由页面滚动进行接管，也就是这种情况下，动画只会跟随页面滚动的变化而变化，也就是滚动多少，动画就执行多少，时间不再起作用。*/
+        /* 关键词 */
+        /*animation-timeline: none;*/
+        /*animation-timeline: auto;*/
+        /* 命名时间线 */
+        /*animation-timeline: --timeline_name;*/
+        /* 滚动时间线 */
+        /*animation-timeline: scroll();*/
+        /*animation-timeline: scroll(scroller axis);*/
+        /* 视图时间线 */
+        /*animation-timeline: view(); // 有点像JS中的Intersection_Observer_API*/
+        /*animation-timeline: view(axis inset);*/
+        /*  axios:*/
+        /*    block：滚动容器的块级轴方向（默认）。*/
+        /*    inline：滚动容器内联轴方向。*/
+        /*    y：滚动容器沿 y 轴方向。*/
+        /*    x：滚动容器沿 x 轴方向。*/
+        /*  inset:表示调整元素的视区范围，有点类似scroll-padding，支持两个值，表示开始和结束两个范围。*/
+        /*    例如：animation-timeline: view(40% 0);当滚动到视区上面40%的时候就完成了动画（默认是滚动到0%，也就是完全离开的时候）*/
+        /*这里的scroll()是一个简写，可以传递两个参数，分别是<scroller>和<axis>*/
+        /*<scroller>表示滚动容器，支持以下几个关键值*/
+        /*nearest：使用最近的祖先滚动容器（默认）*/
+        /*root：使用文档视口作为滚动容器。*/
+        /*self：使用元素本身作为滚动容器。*/
+        /*<axios>表示滚动方向，支持以下几个关键值*/
+        /*block：滚动容器的块级轴方向（默认）。*/
+        /*inline：滚动容器内联轴方向。*/
+        /*y：滚动容器沿 y 轴方向。*/
+        /*x：滚动容器沿 x 轴方向。*/
+        /* 无参数 */
+        /*animation-timeline: scroll();*/
+        /* 设置滚动容器 */
+        /*animation-timeline: scroll(nearest); !* 默认 *!*/
+        /*animation-timeline: scroll(root);*/
+        /*animation-timeline: scroll(self);*/
+        /* 设置滚动方向 */
+        /*animation-timeline: scroll(block); !* 默认 *!*/
+        /*animation-timeline: scroll(inline);*/
+        /*animation-timeline: scroll(y);*/
+        /*animation-timeline: scroll(x);*/
+        /* 同时设置 */
+        /*animation-timeline: scroll(block nearest); !* 默认 *!*/
+        /*animation-timeline: scroll(inline root);*/
+        /*animation-timeline: scroll(x self);*/
+        /*需要注意的是，这里语法容错性比较强，没有顺序要求，会自动识别*/
+        /*因此，如果需要监听横向滚动，可以这样*/
+        /*animation-timeline: scroll(inline);*/
+        /*指定滚动容器*/
+        /*官方的解决方式是创建一个带有名称的时间线，具体做法是，在滚动容器上添加一个属性scroll-timeline-name，这个属性值必须以--开头，就像 CSS 变量一样，还可以通过scroll-timeline-axis设置滚动方向，此时的animation-timeline就不用默认的scroll()了，而是改用前面设置的变量，示意如下*/
+        /*滚动容器*/
+        /*.scroller {*/
+        /*    scroll-timeline-name: --my-scroller; // 设置滚动时间轴的名称*/
+        /*    scroll-timeline-axis: inline; // 设置滚动时间轴的方向*/
+        /*}*/
+        /*.scroller .subject {*/
+        /*    animation: animate-it linear;*/
+        /*    animation-timeline: --my-scroller;*/
+        /*}*/
+        /*animation-range：截取一定的滚动区间，也就是“动画范围”。就是把滚动时间线截取一段作为新的时间线并替代之前的时间线*/
+        /*    animation-range: normal; !* 等价于 normal normal *!*/
+        /*    animation-range: 20%; !* 等价于 20% normal *!*/
+        /*    animation-range: 100px; !* 等价于 100px normal *!*/
+        /*例如：*/
+        /*.back{*/
+        /*    !**!*/
+        /*    animation: back-progress 1s linear forwards;*/
+        /*    animation-timeline: scroll();*/
+        /*    animation-range: 0 100px;*/
+        /*}*/
+
+        /*视图进度时间线*/
+        /*再来看看view()场景。由于涉及到元素和可视区域的交叉，情况稍微复杂一些，如下*/
+        /*animation-range: cover; !* 等价于 cover 0% cover 100% *!*/
+        /*animation-range: contain; !* 等价于 contain 0% contain 100% *!*/
+        /*animation-range: cover 20%; !* 等价于 cover 20% cover 100% *!*/
+        /*animation-range: contain 100px; !* 等价于 contain 100px cover 100% *!*/
+        /*animation-range: normal 25%;*/
+        /*animation-range: 25% normal;*/
+        /*animation-range: 25% 50%;*/
+        /*animation-range: entry exit; !* 等价于 entry 0% exit 100% *!*/
+        /*animation-range: cover cover 200px; !* 等价于 cover 0% cover 200px *!*/
+        /*animation-range: entry 10% exit; !* 等价于 entry 10% exit 100% *!*/
+        /*animation-range: 10% exit 90%;*/
+        /*animation-range: entry 10% 90%;*/
+        /*有以下关键词*/
+        /*cover：元素首次开始进入滚动容器可见范围（0%）到完全离开的过程（100% ），也就是元素只需要和可视范围有交集（默认）*/
+        /*contain：元素完全进入滚动容器可见范围（0%）到刚好要离开的过程（100% ），也就是元素必须完全在可见范围才会触发*/
+        /*entry：元素进入滚动容器可见范围的过程，刚进入是 0%，完全进入是 100%*/
+        /*exit：元素离开滚动容器可见范围的过程，刚离开是 0%，完全离开是 100%*/
+        /*entry-crossing：和entry比较类似，暂时没有发现明显差异*/
+        /*exit-crossing：和exit比较类似，暂时没有发现明显差异*/
+        /*文章地址：https://segmentfault.com/a/1190000044039882*/
+    </style>
+</head>
+<body>
+<div class="progress"></div>
+<div class="item">1</div>
+<div class="item">2</div>
+<div class="item">3</div>
+<div class="item">4</div>
+<div class="item">5</div>
+<div class="item">6</div>
+<div class="item">7</div>
+<div class="item">8</div>
+</body>
+</html>
