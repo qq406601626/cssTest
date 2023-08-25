@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: aliceblue;
+        }
+
+        .list {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-flow: row dense;
+
+        }
+
+        .item {
+            width: 100px;
+            aspect-ratio: 1/1;
+            background: royalblue;
+            color: #fff;
+            font-size: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .item {
+            view-transition-name: var(--i);
+        }
+
+    </style>
+</head>
+<body>
+<h2>点击删除</h2>
+<div class="list" id="list">
+    <div class="item" style="--i: a1">1</div>
+    <div class="item" style="--i: a2">2</div>
+    <div class="item" style="--i: a3">3</div>
+    <div class="item" style="--i: a4">4</div>
+    <div class="item" style="--i: a5">5</div>
+    <div class="item" style="--i: a6">6</div>
+    <div class="item" style="--i: a7">7</div>
+    <div class="item" style="--i: a8">8</div>
+    <div class="item" style="--i: a9">9</div>
+    <div class="item" style="--i: a10">10</div>
+</div>
+<script>
+    list.addEventListener('click', function (ev) {
+        if (ev.target.className === 'item') {
+            document.startViewTransition(() => {
+                ev.target.remove()
+            });
+        }
+    })
+    // 整个过程包括 3 部分
+    // 1,调用document.startViewTransition，浏览器会捕捉当前页面的状态，类似于实时截图，或者“快照”
+    // 2,执行实际的 dom 变化，再次记录变化后的页面状态（截图）
+    // 3,触发两者的过渡动画，包括透明度、位移等变化，也可以自定义 CSS 动画
+    // 在动画执行的过程中，还会在页面根节点自动创建以下伪元素
+    // ::view-transition
+    // └─ ::view-transition-group(root)
+    //    └─ ::view-transition-image-pair(root)
+    //       ├─ ::view-transition-old(root)
+    //       └─ ::view-transition-new(root)
+    // 其中，::view-transition-old表示旧视图的状态，也就是变化之前的截图，::view-transition-new表示新视图的状态，也就是变化之后的截图。
+    // 默认情况下，整个页面root都会作为一个状态，也就是上面的::view-transition-group(root)，在切换前后会执行淡入淡出动画，如下：
+    // :root::view-transition-new(root) {
+    //     animation-name: -ua-view-transition-fade-in; /*淡入动画*/
+    // }
+    // :root::view-transition-old(root) {
+    //     animation-name: -ua-view-transition-fade-out; /*淡出动画*/
+    // }
+    // 这也是为什么在使用了document.startViewTransition后整个页面会有淡入淡出的效果了
+    // 为了让每个元素都有自己的过渡状态，这里需要给每个元素都指定名称
+    //     .item{
+    //       view-transition-name: item-1;
+    //     }
+    // 这样指定名称后，每个名称都会创建一个::view-transition-group，表示独立的分组。详见示例图
+    // 文章地址：https://segmentfault.com/a/1190000044133146?utm_source=weekly&utm_medium=email&utm_campaign=SegmentFault%20%E7%B2%BE%E9%80%89%E6%AF%8F%E5%91%A8%E7%B2%BE%E9%80%89%E4%B8%A8%E5%A4%AA%E4%B8%9D%E6%BB%91%E4%BA%86%EF%BC%81%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B%E5%8E%9F%E7%94%9F%E7%9A%84%E8%A7%86%E5%9B%BE%E8%BD%AC%E6%8D%A2%E5%8A%A8%E7%94%BB%20View%20Transitions%EF%BD%9CDocker%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB
+</script>
+</body>
+</html>
