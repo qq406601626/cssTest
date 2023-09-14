@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 {
+            container: c1 / inline-size;
+        }
+
+        .c2 {
+            container: c2 / inline-size;
+        }
+
+
+        @container c1 (width < 300px) {
+            @container (width < 1200px) {
+                .item {
+                    color: red;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="c1">
+    <div class="item">111</div>
+</div>
+<div class="c2">
+    <div class="item">222</div>
+</div>
+</body>
+</html>
