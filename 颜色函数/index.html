@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .hwb {
+            background-color: hwb(30 0% 30%); /*第一个代表色调，取值范围为0-360，第二个为白色比例，第三个为黑色比例*/
+        }
+
+        .color-mix {
+            background-color: color-mix(in srgb, #ff0000, transparent 90%);
+            /*第一个可以默认使用in srgb,第二个为第一个混合颜色及透明度，第三个为第二个混合颜色及透明度*/
+            /*如果要对颜色进行不透明度更改,可以使用 color-mix(in srgb, #ff0000,transparent 90%)并调整transparent的不透明度*/
+        }
+
+        .hex-16 {
+            background: #0000ff10; /*后面的数字越大,表示颜色越明显,所以后面的数字代表的是颜色的显示度*/
+        }
+    </style>
+</head>
+<body>
+<div class="hwb">hwb</div>
+<div class="color-mix">color-mix</div>
+<div class="hex-16">十六进制的带有不透明度的表示方法</div>
+</body>
+</html>
