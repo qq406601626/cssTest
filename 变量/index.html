@@ -10,16 +10,16 @@
         }
 
         :root {
-            --color: #ff0000;
+            --color: #ff0000; /*声明一个顶级变量，所有元素都可以使用*/
         }
 
         .item-1 {
-            --color: #00ff00;
+            --color: #00ff00; /*修改值。注意这里是重新声明了一个--color而不是对顶级变量的值进行修改。*/
             color: var(--color,pink);
         }
 
         .item-2 {
-            color: var(--color);
+            color: var(--color); /*颜色item-1的设置影响，依然是#ff0000*/
         }
     </style>
 </head>
