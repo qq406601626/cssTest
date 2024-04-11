@@ -29,7 +29,8 @@
     </style>
 </head>
 <body>
-<!--修改某个元素的margin并不会导致同行或者同列的元素跟着位移-->
+1、修改某个元素的margin，如果这个元素超出了原来的边界，会导致网格线的变化。
+2、如果同行或者同列的元素是stretch,则会导致同行或者同列的元素变大或者变小。
 <div class="container">
     <div class="item">1</div>
     <div class="item item-2">2</div>
