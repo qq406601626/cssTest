@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1px;
+        }
+
+        .grid__item {
+            border: 1px solid gray;
+            box-sizing: content-box;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--原理：-->
+<!--1、先让元素占据整个空间。-->
+<!--2、设置box-sizing为content-box，让边框挤出去。-->
+<!--3、设置gap，让挤出去的边框在gap中显示。-->
+<div class="grid">
+    <div class="grid__item">1</div>
+    <div class="grid__item">2</div>
+    <div class="grid__item">3</div>
+    <div class="grid__item">4</div>
+    <div class="grid__item">5</div>
+    <div class="grid__item">6</div>
+    <div class="grid__item">7</div>
+    <div class="grid__item">8</div>
+    <div class="grid__item">9</div>
+    <div class="grid__item">10</div>
+    <div class="grid__item">11</div>
+    <div class="grid__item">12</div>
+</div>
+</body>
+</html>
