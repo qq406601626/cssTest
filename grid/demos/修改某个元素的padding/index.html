@@ -27,7 +27,8 @@
     </style>
 </head>
 <body>
-
+<!--修改某个元素的padding后会导致同行或者同列的元素跟着变大或者变小-->
+<!--这是因为grid默认align-items和justify-items为stretch，当修改align-items和justify-items后，同行或者同列的元素就不会跟着变大或者变小了。-->
 <div class="wrapper">
     <div class="container">
         <div class="item">1</div>
