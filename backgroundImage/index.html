@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--1、display：none，如果设置在外层元素上，则所有内层元素都为不可见状态。-->
+<!--2、background-image，在渲染时，如果为不可见，则不会加载图片。-->
+<div style="display: none;background: url('img/1.png');width: 300px;height: 300px"  >
+    <div style="width: 100px;height: 100px;background:  url('img/2.png');"></div>
+    <img src="img/3.png" alt="" style="width: 100px">
+</div>
+</body>
+</html>

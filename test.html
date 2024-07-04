@@ -8,45 +8,18 @@
             margin: 0;
             padding: 0;
         }
-        .flex {
-            width: 320px;
-            padding: 5px 10px;
-            display: flex;
-            border-bottom: 1px dashed #ccc;
+        .container{
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            margin: 100px auto;
         }
-        .flex .col1 {
-            margin-right: 6px;
-            color: #999;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            flex-shrink: 1;
-        }
-        .flex .col2 {
-            flex-grow: 1;
-            flex-shrink: 0;
-            flex-basis: 0;
-            min-width: 0; /*解决方案*/
-        }
-        .flex .col2 .item-con {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        .flex p {
-            font-size: 12px;
-            color: #999;
-        }
+
     </style>
 </head>
 <body>
-<div class="flex">
-    <div class="col1">图标</div>
-    <div class="col2">
-        <div class="item-con">
-            flexbox 布局旨在提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。
-        </div>
-    </div>
+<div class="container">
+
 </div>
 </body>
 <script>
