@@ -5,8 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<!--1、display：none，如果设置在外层元素上，则所有内层元素都为不可见状态。-->
-<!--2、background-image，在渲染时，如果为不可见，则不会加载图片。-->
+<!--1、display：none，如果设置在外层元素上，则当前元素和所有内层元素都为不可见状态。-->
+<!--2、background-image，在渲染时，如果为不可见，则不会加载图片。但是img元素的src在不可见时资源依然会被加载-->
+<!--3、visibility:hidden和opacity:0都会渲染子元素的background和内容-->
 <div style="display: none;background: url('img/1.png');width: 300px;height: 300px"  >
     <div style="width: 100px;height: 100px;background:  url('img/2.png');"></div>
     <img src="img/3.png" alt="" style="width: 100px">

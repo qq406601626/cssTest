@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            padding: 20px;
+            content-visibility: hidden;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<!--1、content-visibility: hidden，如果设置在外层元素上，当前元素不会收到影响，所有内层元素都为不可见状态。所有子元素的background-image和图片的src的资源依然会被加载。-->
+<!--2、content-visibility：auto，参见：https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247490038&idx=1&sn=59d976a50e2c63c115a6ce719cbb46a9&chksm=ea017a9add76f38cf810ae190745d29395c46ea1df92c7f78909e4227975cb08eacc74ba7f4a&scene=27-->
+<div class="container" style="background:  url('img/1.png');">
+    <div style="width: 100px;height: 100px;background:  url('img/2.png');"></div>
+    <img src="img/3.png" alt="" style="width: 100px">
+</div>
+</body>
+</html>
