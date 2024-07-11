@@ -21,7 +21,20 @@
     <!--1、相关参照元素：最近的滚动元素、设置了position: sticky的元素的父元素。-->
     <!--2、position: sticky的top和left值是参照最近的滚动元素。-->
     <!--3、随着滚动进行，sticky的父元素向上或者向左移动，当sticky元素到达粘性位置后，粘性元素开始向下或者向右移动，当粘性元素超出父元素的区域后，-->
-    <!--   粘性效果消失，sticky元素开始随着其父元素向上或者向左滚动走。-->
+    <!--粘性效果消失，sticky元素开始随着其父元素向上或者向左滚动走。-->
+    <!--总结：1、在滚动元素层级下；2、父元素的高度大于设置了sticky的元素的高度;3、设置了sticky的元素在到达指定位置后，接下来的滚动行为不是因为当前元素所触发的。-->
+    <div>
+        <div style="background: red;">
+            <div>
+                <div style="position: sticky;top: 0">111</div>
+                <div>222</div>
+                <div>333</div>
+            </div>
+        </div>
+        <div style="background: green;height: 500px">
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
