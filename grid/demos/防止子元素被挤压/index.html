@@ -13,13 +13,18 @@
             width: 300px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            /*方式3:*/
+            /*grid-template-columns: repeat(2,minmax(0,1fr));*/
             gap: 2px;
             background: red;
         }
-        .item{
+
+        .item {
             background: green;
+            /*方式1:*/
+            /*overflow: hidden; */
+            /*方式2:*/
             /*min-width: 0;*/
-            overflow: hidden;
         }
     </style>
 </head>
