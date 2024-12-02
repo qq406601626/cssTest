@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            height: 100px;
+            background: red;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: height 0.5s linear;
+            overflow: hidden;
+        }
+        .container.auto-height{
+            height: calc-size(auto,size);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item">1111111111aaaaa</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111</div>
+    <div class="item">1111111111bbbbb</div>
+</div>
+<button id="btn">test</button>
+</body>
+<script>
+    const btn = document.getElementById('btn')
+    const container = document.querySelector('.container')
+    btn.addEventListener('click',()=>{
+        container.classList.add('auto-height')
+    })
+</script>
+</html>
