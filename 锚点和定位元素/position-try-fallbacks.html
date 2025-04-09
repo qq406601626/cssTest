@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 500px;
+      height: 500px;
+      background: pink;
+      anchor-name: --container;
+    }
+
+    .box {
+      position: absolute;
+      position-anchor: --container;
+      position-area: right span-bottom;
+      width: 200px;
+      height: 200px;
+      background: #87CCEA;
+      position-try-fallbacks: --bottom;
+    }
+
+    @position-try --bottom {
+      position-area: bottom;
+    }
+  </style>
+</head>
+<body>
+<!--position-try-fallbacks用于动态调整定位元素超出浏览器边界时如果布局（参考position-try-fallbacks-demo.mp4）。-->
+<div class="container"></div>
+<div class="box"></div>
+</body>
+</html>

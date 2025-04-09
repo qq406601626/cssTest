@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,15 +9,46 @@
             padding: 0;
         }
 
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            background: pink;
+            anchor-name: --container;
+        }
+
+        .box {
+            position: absolute;
+            position-anchor: --container;
+            position-area: right span-bottom;
+            width: 200px;
+            height: 200px;
+            background: #87CCEA;
+        }
     </style>
 </head>
 <body>
-一般的锚点定位是通过把需要定位的元素设置成position：absolute，然后设置其上下左右的位置来定位。
-position-area设置的思路是把锚点元素划分成九个区域，然后通过设置position-area，把定位元素放在对应的区域中，所以通过position-area这种方式，必须指定position-anchor: --anchor-el，而且也得使用position:absolute定位。;
-顶部居中：inset-area: top 或 inset-area: block-start。
-左对齐：inset-area: left 或 inset-area: inline-start。
-底部居中：inset-area: bottom 或 inset-area: block-end。
-右对齐：inset-area: right 或 inset-area: inline-end。
-...
+<!--一般的锚点定位是通过把需要定位的元素设置成position：absolute，然后设置其上下左右的位置来定位。-->
+<!--position-area设置的思路是把锚点元素划分成九个区域，然后通过设置position-area，把定位元素放在对应的区域中，所以通过position-area这种方式，必须指定position-anchor: &#45;&#45;anchor-el，而且也得使用position:absolute定位。;-->
+<!--position-area语法：position-area：垂直位置 水平位置。-->
+<!--顶部居中：position-area: top 或 position-area: block-start。-->
+<!--左对齐：position-area: left 或 position-area: inline-start。-->
+<!--底部居中：position-area: bottom 或 position-area: block-end。-->
+<!--右对齐：position-area: right 或 position-area: inline-end。-->
+<!--span-left:左边可以扩展，即靠右对齐。-->
+<!--span-right:右边可以扩展，即靠左对齐。-->
+<!--span-top:上边可以扩展，即靠底对齐。-->
+<!--span-bottom:下边可以扩展，即靠顶对齐。-->
+<!--...-->
+
+<div class="container"></div>
+<div class="box"></div>
 </body>
 </html>
