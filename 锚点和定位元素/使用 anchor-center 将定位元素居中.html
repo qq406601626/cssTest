@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<!--为了更轻松地将锚点定位的元素相对于其锚点居中，我们引入了一个名为 anchor-center 的新值，可与 justify-self、align-self、justify-items 和 align-items 属性搭配使用。-->
+<!--此示例通过使用 justify-self: anchor-center 将定位元素居中放置在其锚点上方来修改了前面的示例：参考使用 anchor-center 将定位元素居中.png-->
+.positioned-notice {
+  position: absolute;
+  position-anchor: --anchor-el;
+  bottom: anchor(top);
+  justify-self: anchor-center;
+}
+</body>
+</html>

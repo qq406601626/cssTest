@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            background: red;
+            display: block;
+            anchor-name: --container;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+
+        /*top = inset-block-start */
+        /*left= inset-inline-start*/
+        /*bottom = inset-block-end*/
+        /*right= inset-inline-end*/
+
+        .box.box-1 {
+            background: green;
+            top:  anchor(--container top);
+            left: anchor(--container left);
+        }
+
+        .box.box-2 {
+            background: blue;
+            top:  anchor(--container top);
+            right: anchor(--container right);
+        }
+
+        .box.box-3 {
+            background: palegreen;
+            bottom:  anchor(--container bottom);
+            left: anchor(--container left);
+        }
+
+        .box.box-4 {
+            background: pink;
+            bottom:  anchor(--container bottom);
+            right: anchor(--container right);
+        }
+    </style>
+</head>
+<body>
+<div class="box box-1"></div>
+<div class="box box-2"></div>
+<div class="box box-3"></div>
+<div class="box box-4"></div>
+<div class="container"></div>
+
+
+
+
+</body>
+</html>
