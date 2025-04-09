@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*anchor-size() 可用于根据锚点的尺寸（宽度、高度或内嵌和块级尺寸）调整锚点定位元素的尺寸或位置。*/
+        /*以下 CSS 展示了将此属性用于宽度的示例，其中在 calc() 函数中使用 anchor-size(width) 将box的宽设置为锚点宽的两倍：*/
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 400px;
+            height: 200px;
+            background: red;
+            anchor-name: --container;
+        }
+
+        .box {
+            background: green;
+            /*基本用法：*/
+            /*width:anchor-size(--container height);*/
+            width: calc(anchor-size(--container width) * 2);
+            height: 200px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container"></div>
+<div class="box"></div>
+</body>
+</html>

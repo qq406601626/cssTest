@@ -14,5 +14,10 @@
 <body>
 一般的锚点定位是通过把需要定位的元素设置成position：absolute，然后设置其上下左右的位置来定位。
 position-area设置的思路是把锚点元素划分成九个区域，然后通过设置position-area，把定位元素放在对应的区域中，所以通过position-area这种方式，必须指定position-anchor: --anchor-el，而且也得使用position:absolute定位。;
+顶部居中：inset-area: top 或 inset-area: block-start。
+左对齐：inset-area: left 或 inset-area: inline-start。
+底部居中：inset-area: bottom 或 inset-area: block-end。
+右对齐：inset-area: right 或 inset-area: inline-end。
+...
 </body>
 </html>
