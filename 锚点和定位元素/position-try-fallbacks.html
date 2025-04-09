@@ -41,6 +41,9 @@
 </head>
 <body>
 <!--position-try-fallbacks用于动态调整定位元素超出浏览器边界时如果布局（参考position-try-fallbacks-demo.mp4）。-->
+<!--如果您要进行基本调整（例如从上到下或从左到右翻转，或同时进行这两种翻转），甚至可以跳过创建自定义 @position-try 声明的步骤，并使用浏览器支持的内置翻转关键字（例如 flip-block 和 flip-inline）。-->
+<!--这些替代项可用作自定义 @position-try 声明，并且可以相互结合使用：-->
+<!--position-try-options: flip-block, flip-inline, flip-block flip-inline;-->
 <div class="container"></div>
 <div class="box"></div>
 </body>

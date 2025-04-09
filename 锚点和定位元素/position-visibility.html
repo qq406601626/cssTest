@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+在某些情况下，您可能希望将某个元素锚定在网页的子滚动条中。
+在这些情况下，您可以使用 position-visibility 控制锚点的可见性。
+锚点何时会保持在视野中？此图标何时会消失？借助此功能，您可以控制这些选项。
+如果您希望定位的元素在锚点离开视野之前保持在视野中，请使用 position-visibility: anchors-visible：
+（参考position-visibility-demo.mp4和position-visibility-demo2.mp4）
+#tooltip {
+  position: fixed;
+  position-anchor: --anchor-top-anchor;
+  position-visibility: anchors-visible;
+  bottom: anchor(top);
+}
+或者，您也可以使用 position-visibility: no-overflow 来防止锚点溢出其容器：
+#tooltip {
+  position: absolute;
+  position-anchor: --anchor-top-anchor;
+  position-visibility: no-overflow;
+  bottom: anchor(top);
+}
+</body>
+</html>
