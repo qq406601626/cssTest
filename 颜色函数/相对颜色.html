@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*相对颜色语法：*/
+        /*rgb(from color r g b / alpha)*/
+        /*hsl(from color h l s)*/
+        /*其中r、g、b、h、l、s是关键字，代表的是把前面color的颜色解构出来的值。可以使用新的值来替换某个关键字。*/
+        /*eg：*/
+        /*rgb(from red r g 255 / alpha)：因为红色的颜色值为（255,0,0），所以新的颜色值为（255,0,255），代表紫色。*/
+        /*color和r、g、b、h、l、s都可以配合calc使用：*/
+        /*eg：rgb(from red calc(r/2) g b /alpha)：代表在原来的红色值的基础上把红色信息减半。 */
+        /*也可以配合var函数使用：*/
+        /*eg：rgb(from var(--color) r g b / alpha)                                     */
+
+        p {
+            --color: #d5b778;
+            color: var(--color);
+        }
+
+        p:hover {
+            color: rgb(from var(--color) calc(r + 80) g b / calc(alpha / 2));
+        }
+    </style>
+</head>
+<body>
+<p>这是一段文字</p>
+</body>
+</html>
