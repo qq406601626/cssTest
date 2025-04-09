@@ -15,17 +15,27 @@
         /*也可以配合var函数使用：*/
         /*eg：rgb(from var(--color) r g b / alpha)                                     */
 
-        p {
+        .p1 {
             --color: #d5b778;
             color: var(--color);
         }
 
-        p:hover {
+        .p1:hover {
             color: rgb(from var(--color) calc(r + 80) g b / calc(alpha / 2));
+        }
+
+        .p2 {
+            --color: #69aa60;
+            color: var(--color);
+        }
+
+        .p2:hover {
+            color: hsl(from var(--color) h calc(s - 10) l);
         }
     </style>
 </head>
 <body>
-<p>这是一段文字</p>
+<p class="p1">这是第一段文字</p>
+<p class="p2">这是第二段文字</p>
 </body>
 </html>
