@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width:100px;
+            height: 100px;
+            background: red;
+            transition: width 0.35s ease;
+            overflow: hidden;
+        }
+
+        .container:hover {
+            width: calc-size(auto,size);
+        }
+    </style>
+</head>
+<body>
+calc-size和interpolate-size有点类似，不同点在于：
+<!--calc-size() 的优势在于能够执行计算，而 interpolate-size 无法执行此操作：-->
+<!--width: calc-size(auto, size - 10px); // auto宽度减去10像素。-->
+<!--width: calc-size(min-content, size + 1rem); // min-content宽度加1rem。-->
+<!--width: calc-size(max-content, size * .5); // max-content内容宽度的一半。-->
+<!--需要注意的是，无论是calc-size()函数还是interpolate-size属性，都只适用于与【尺寸】相关的些CSS属性。-->
+<!--  该函数接受两个参数，顺序如下：-->
+<!--    1、calc-size 依据，可以是 <intrinsic-size-keyword>，也可以是嵌套的 calc-size()。-->
+<!--    2、calc-size 计算，可让您使用 calc-size 基准进行计算。如需引用 calc-size 基准，请使用 size 关键字。-->
+<!--    eg：-->
+<!--      width: calc-size(auto, size);        // = the auto width, unaltered-->
+<!--      width: calc-size(min-content, size); // = the min-content width, unaltered-->
+
+
+<!--
+nav a {
+  width: 80px;
+  overflow-x: clip;
+  transition: width 0.35s ease;
+
+  &:hover,
+    &:focus-visible {
+    width: calc-size(max-content, size); /* 👈 */
+  }
+}
+-->
+<!--从视觉上看，结果与使用 interpolate-size 时完全相同。因此，在这种特殊情况下，您应使用 interpolate-size。-->
+<div class="container">111111111111111111111111111111111111111111111111111</div>
+
+</body>
+</html>
