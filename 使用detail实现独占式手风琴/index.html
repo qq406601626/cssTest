@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        details {
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: 0.5em 0.5em 0;
+        }
+
+        summary {
+            font-weight: bold;
+            margin: -0.5em -0.5em 0;
+            padding: 0.5em;
+        }
+
+        /*设置打开时的样式*/
+        details[open] {
+            padding: 0.5em;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #aaa;
+            margin-bottom: 0.5em;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--为每个detail元素设置相同的name属性即可实现独占式手风琴效果。-->
+<div class="container">
+    <details name="detail">
+        <summary>标题1</summary>
+        <div>内容1</div>
+    </details>
+    <details name="detail">
+        <summary>标题2</summary>
+        <div>内容2</div>
+    </details>
+    <details name="detail">
+        <summary>标题3</summary>
+        <div>内容3</div>
+    </details>
+    <details name="detail">
+        <summary>标题4</summary>
+        <div>内容4</div>
+    </details>
+</div>
+</body>
+<script>
+
+</script>
+</html>
