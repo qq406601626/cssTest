@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            border: 1px solid rgba(255, 0, 0, 1);
+            padding: 10px;
+        }
+        .item{
+            border: 1px solid rgba(0,255,0,1);
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        /*因为nth-of-type只能根据标签匹配，所以无法使用nth-of-type来达到nth-of-class的功能。*/
+        /*因此可以使用nth-child(n of selector)来实现nth-of-class的功能。*/
+        /*例如：匹配所有.t3类中的第二个元素：*/
+        .item:nth-child(2 of .t3){
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item t1">t1</div>
+    <div class="item t2">t2</div>
+    <div class="item t3">t3</div>
+    <div class="item t1">t1</div>
+    <div class="item t2">t2</div>
+    <div class="item t3">t3</div>
+    <div class="item t1">t1</div>
+    <div class="item t2">t2</div>
+    <div class="item t3">t3</div>
+</div>
+</body>
+</html>
