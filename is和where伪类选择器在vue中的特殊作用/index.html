@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+正常情况下，在vue中，的scope的样式会被编译成：.a .b[随机码]{}的形式，模板会被编译成
+<标签 data-随机码></标签>的形式，
+但是当我们使用js动态添加的dom不会有data-随机码的属性，所以无法匹配到预先写好的样式，这时可以把该样式写在非scope中，也可以使用如下方式：
+这时候可以使用:is()伪类，因为在Vue等框架中使用:is()伪类，选择器就不会再增加随机属性选择器，
+例如：
+同样在scoped样式中，现在，我们把需要重置的类名选择器使用:is()包裹下，如下所示：
+<style scoped>
+    .status-normal :is(.ant-radio-inner) {
+        color: red;
+    }
+</style>
+编译后的css为：
+.status-normal[data-随机码] :is(.ant-radio-inner) {
+    color:red;
+}
+而不是
+.status-normal :is(.ant-radio-inner)[data-随机码] {
+    color:red;
+}
+-->
+</body>
+</html>

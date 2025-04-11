@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+:is()伪类可以看成是一种CSS书写语法糖，可以简化复杂且重复选择器的书写，例如：
+.active > .class-a,
+.active > .class-b,
+.active > .class-c {
+  display: block;
+}
+可以简化成：
+active > :is(.class-a, .class-b, .class-c) {
+  display: block;
+}
+
+而:where()伪类和:is()伪类的语法、作用一模一样，区别在于选择器的优先级上：
+:where()伪类的优先级是0，无论其参数内的选择器优先级多高，是整个CSS世界中为数不多的可以降低选择器优先级的特性（另外一个是 @layer 规则，详见“详解日后定会大规模使用的CSS @layer 规则”一文）。
+而:is()伪类的优先级是由括号内选择器的优先级决定的，从这一点来看，:where()伪类的作用可能还更大一点。
+
+</body>
+</html>
