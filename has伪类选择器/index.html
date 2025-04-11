@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<!--:has的选择器时可以穿透的，而不是仅仅局限于直接子元素。-->
+
+<!--:has()伪类支持所有的CSS选择符，例如： a:has(> img) { display: block; }。-->
+<!--注意上面代码中 :has 伪类的参数，选择符>直接写在了参数的最前面，而不是 a:has(a > img) 这样的写法。 你可以理解为 :has() 伪类的参数的最前面有一个看不见的 :scope 伪类，因此，a:has(a > img)这样的写法是不合法的。-->
+
+<!--还可以使用+或者~这样的选择符，可以实现“前面兄弟选择器”的效果，即根据后面的兄弟元素选择前面的元素。例如： h5:has(+ p) { font-size: 1rem; }，表示匹配后面跟随 <p> 元素的 <h5> 元素。-->
+
+<!--:has()伪类还支持复杂选择器和选择器列表，例如： article:has(h5, p) { background-color: #f0f3f9; }，表示只需要 <article> 元素内有 <h5> 元素【或者】有 <p> 元素就会匹配，【是或的关系，不是与】。-->
+
+<!--如果希望是与的关系，也就是同时有 <h5> 元素和 <p> 元素才匹配，则可以试试下面的写法：article:has(h5):has(p) { background-color: #f0f3f9; }。-->
+
+<!--:has() 伪类还可以和其他伪类混用：section:not(:has(h5)) { border: skyblue solid; }，section:has(:not(h5)) { color: deepskyblue; }。-->
+
+<div class="container">
+    <div class="box">
+        <div class="inner-box-1">111111</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="box">
+        <div class="inner-box-2">2222</div>
+    </div>
+</div>
+</body>
+</html>
