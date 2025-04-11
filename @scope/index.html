@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @scope (nav) {
+            /*:scope伪类可以匹配@scope函数中选择器匹配的元素*/
+            :scope { /*代表nav元素*/
+                border: double red;
+            }
+            ul {
+                li {
+                    a {
+                        color: blue;
+
+                    }
+
+                    > a {
+                        color: red;
+                    }
+                }
+            }
+        }
+
+        /* 可以使用to (selector)来使范围内的某个元素不参与选择器匹配，语法：
+          @scope(nav:has(p)) to (p, [class], .some-class) {
+              ...
+          }
+         */
+    </style>
+</head>
+<body>
+<!--@scope的作用与scss中的语法嵌套类似，可以实现CSS选择器的嵌套书写。-->
+<nav>
+    <ul>
+        <li><a href="">链接1</a></li>
+        <li><a href="">链接2</a></li>
+        <li><a href="">链接3</a></li>
+        <li>
+            <p>
+                <a href="">链接4</a>
+            </p>
+        </li>
+    </ul>
+</nav>
+</body>
+<script>
+</script>
+</html>
