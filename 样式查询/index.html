@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
+样式查询：匹配元素的style属性中的值和value。
+以前都是根据tag/class/id进行css元素匹配，但是没有根据style中的某个值进行匹配的，样式查询可以实现该功能（但是目前只是由自定义样式变量可以匹配）。
+例如，要匹配颜色为红色的元素，可以使用@container style(color:red){}，这样就可以匹配到该元素，但是目前还不支持。
+例如，要匹配自定义样式变量--color为red的元素，可以使用@container style(--color:red){}，这种自定义样式变量目前浏览器支持。
+例如，要匹配自定义样式变量--color为red且container-name为test的元素，可以使用@container test (--color:red){}进行匹配。
 
+样式查询的语法和@container容器单位的语法有点类似，但是左右却完全不同。
+容器媒体查询的语法为：@container [container-name] (max-size/min-size < value){}。
+样式查询的语法为：@container [container-name] (--diyKey:diyValue){ .selector{} }。
 </body>
 </html>
