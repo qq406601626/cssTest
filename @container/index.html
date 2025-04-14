@@ -4,30 +4,102 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .c1 {
-            container: c1 / inline-size;
-        }
 
-        .c2 {
-            container: c2 / inline-size;
-        }
-
-
-        @container c1 (width < 300px) {
-            @container (width < 1200px) {
-                .item {
-                    color: red;
-                }
-            }
-        }
     </style>
 </head>
 <body>
-<div class="c1">
-    <div class="item">111</div>
-</div>
-<div class="c2">
-    <div class="item">222</div>
-</div>
+<!--容器查询有两种规则：-->
+<!--1、设置container-type并配合容器查询单位使用。-->
+<!--2、使用@container (max-width: 480px){}，类似于媒体查询，该方式也要使用container-type声明容器元素。-->
+
+<!--1、使用container-type并配合容器查询单位使用：
+.container {
+    container-type: inline-size;
+}
+.container p {
+    font-size: clamp(.75rem, calc(100cqw / 40), 2rem);
+    text-align: center;
+}-->
+
+
+<!--2、使用@container规则：
+.container {
+    container-type: inline-size;
+}
+
+@container (max-width: 480px) {
+    .container p {
+        text-align: left;
+        font-weight: bold;
+    }
+}
+作用原理：凡是写在@container规则中的CSS语句，都会寻找最近的容器元素，并进行匹配。
+凡是写在@container规则中的CSS语句，都会寻找最近的容器元素，并进行匹配。
+例如，上面的例子中，.container p匹配的元素最近的容器元素就是.container元素，因此，会在.container元素尺寸小于480px的时候，渲染@container规则中的CSS语句。
+如果页面中没有任何元素是容器元素（也就是没有元素设置container属性），则@container是不会执行的，同时cqw单位会按照浏览器窗体尺寸就像计算（等同于vw）。
+所以@container规则生效的前提就是需要先声明容器元素，使用的是CSS container属性。
+-->
+
+
+<!--设置了container-type的元素会变成容器元素。-->
+<!--
+container-type的可选值：
+/* Keyword values */
+container-type: normal（默认值，表示不建立容器元素）;
+container-type: size（水平和垂直方向都建立）;
+container-type: inline-size（只在水平方向建立，会给元素同时应用layout、style和inline-size容器状态）;
+container-type: scroll-state;
+
+/* Two values */
+container-type: size scroll-state;
+
+/* Global Values */
+container-type: inherit;
+container-type: initial;
+container-type: revert;
+container-type: revert-layer;
+container-type: unset;
+-->
+
+
+<!--容器其查询单位	释义-->
+<!--cqw	            表示容器查询宽度（Container Query Width）占比。1cqw等于容器宽度的1%。假设容器宽度是1000px，则此时1cqw对应的计算值就是10px。-->
+<!--cqh	            表示容器查询高度（Container Query Height）占比。1cqh等于容器高度的1%。-->
+<!--cqi	            表示容器查询内联方向尺寸（Container Query Inline-Size）占比。默认情况下，Inline-Size指的就是水平方向，对应的是宽度，因此，1cqi通常可以看成是容器宽度的1%。-->
+<!--cqb	            表示容器查询块级方向尺寸（Container Query Block-Size）占比。默认情况下，Block-Size指的就是垂直方向，对应的是高度，因此，1cqb通常可以看成是容器高度的1%。-->
+<!--cqmin	        表示容器查询较小尺寸的（Container Query Min）占比，例如容器尺寸是300px*400px，则100cqmin对应的是尺寸较小的宽度300px，而非高度。-->
+<!--cqmax	        表示容器查询较大尺寸的（Container Query Min）占比。-->
+
+
+<!--container属性是container-type和container-name这两个属性的缩写：-->
+<!--container的语法：-->
+<!--container: container-name / container-type；-->
+<!--eg：-->
+<!--.container-a {-->
+<!--    container: aaa / inline-size;-->
+<!--}-->
+
+<!--container-name的作用：
+这个属性在页面中存在多个容器元素的时候很有用。
+假设如下CSS代码：
+@container (max-width: 480px（或者width < 480px）) { // =>现代浏览器媒体查询已经支持直接使用大于号小于号了，因此，不超过480宽度的判断语法max-width: 480px也可以写作width < 480px
+    p {
+        font-weight: bold;
+    }
+}
+
+如果页面中存在多个容器元素，则这些元素中的 <p> 元素都会应用 font-weight:bold，但我们的初衷可能就只有某一个容器元素才应用相关样式，此时container-name就很有作用了。
+.container-a {
+    container: aside / inline-size;
+}
+.container-b {
+    container: banner / inline-size;
+}
+@container banner (max-width: 480px) { // => 此时，只有banner这容器元素内的 <p> 元素才会文字加粗。
+    p {
+        font-weight: bold;
+    }
+}-->
+
 </body>
 </html>
