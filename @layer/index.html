@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#container.container #box.box {*/
+        /*    color: purple;*/
+        /*}*/
+
+        .box {
+            color: blue;
+        }
+
+        @layer base1 {
+            #container.container #box.box {
+                color: red;
+            }
+        }
+
+        @layer  base2 {
+            .box {
+                color: green;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<!--@layer 声明了一个层叠层，同一层内的规则将级联在一起，这给予了开发者对层叠机制的更多控制。-->
+<!--
+语法：@layer layerName {}
+例如：
+@layer utilities { // 创建一个名为 utilities 的层叠层，大括号内的样式都在同一个层内。
+
+}
+-->
+
+<!--引入外部css并创建层叠层，语法：@import (style.css) layer(layerName)。-->
+
+<!--创建带命名的层叠层，但不指定任何样式：语法：@layer layerName1, layerName2, layerName3; // 可以理解为指定层级顺序。
+这一做法很有用，因为层最初被指定的顺序决定了它是否有优先级（声明样式所在的层越靠后，那么该样式优先级越高）。-->
+
+<!--
+代码的优先级和层级有关，和代码的权重无关（除非指定!important）（此示例只讨论层级和层级之间的优先级）。
+例如：
+#container.container #box.box {
+    color: red;
+}
+
+.box {
+    color: green;
+}
+
+第一段样式的权重要高于第二段，此时文字颜色为红色，但是如果把两段代码都放在层级中：
+@layer base1 {
+    #container.container #box.box {
+        color: red;
+    }
+}
+
+@layer  base2{
+    .box {
+        color: green;
+    }
+}
+此时文字颜色为绿色。
+
+有了@layer，将使创建CSS选择器变得更加简单，因为不需要确保每一个选择器都有足够高的优先级来覆盖其他冲突的规则，只需要确保它们出现在一个顺序更靠后的层叠层中。
+
+层级的优先级和小于非层级中的优先级：
+.box {
+    color: green;
+}
+
+@layer base1 {
+    #container.container #box.box {
+        color: red;
+    }
+}
+此时文字颜色为绿色。
+
+【总结：css优先级：先声明的层级 < 后声明的层级 < 不在层级中的】。
+【要想使代码的css的优先级降低，就放在@layer中】。
+
+
+-->
+<div class="container" id="container">
+    <div class="box" id="box" style="font-weight: bolder">111</div>
+</div>
+</body>
+</html>
