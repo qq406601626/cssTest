@@ -8,9 +8,11 @@
         /*    color: purple;*/
         /*}*/
 
-        .box {
-            color: blue;
-        }
+        /*.box {*/
+        /*    color: blue;*/
+        /*}*/
+
+
 
         @layer base1 {
             #container.container #box.box {
@@ -23,6 +25,14 @@
                 color: green;
             }
         }
+
+        @layer {
+            #container.container #box.box {
+                color: purple;
+            }
+        }
+
+
 
 
     </style>
@@ -70,6 +80,9 @@
 有了@layer，将使创建CSS选择器变得更加简单，因为不需要确保每一个选择器都有足够高的优先级来覆盖其他冲突的规则，只需要确保它们出现在一个顺序更靠后的层叠层中。
 
 层级的优先级和小于非层级中的优先级：
+原因：所有未在层级中的样式都会被创建到一个匿名层级中，并置于所有层级的末尾，所以非层级中的样式优先级最高。
+ps：手动创建的匿名层级，如@layer {}，遵循普通的层级规则，即写在前面优先级就低，写在后面优先级就高。
+
 .box {
     color: green;
 }
@@ -80,6 +93,28 @@
     }
 }
 此时文字颜色为绿色。
+
+如果一个层级已经创建过，再次创建该层级时只会向原来的层级中添加规则而并不会覆盖原来的层级规则和顺序。
+例如：@layer base;
+@layer base { // 向已存在的层中添加规则
+  .item {
+    color: rebeccapurple;
+  }
+}
+
+
+嵌套语法：
+@layer framework {
+  @layer layout {
+  }
+}
+向 framework 层内部的 layout 层附加规则，只需用 . 连接这两层：
+例如：
+@layer framework.layout {
+  p {
+    margin-block: 1rem;
+  }
+}
 
 【总结：css优先级：先声明的层级 < 后声明的层级 < 不在层级中的】。
 【要想使代码的css的优先级降低，就放在@layer中】。
